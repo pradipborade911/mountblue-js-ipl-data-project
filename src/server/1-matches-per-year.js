@@ -1,19 +1,16 @@
-function findMatchesPerYear(matches){
-    let matchesPlayedByseason ={}
+function findMatchesPerYear(matches) {
+    let matchesPlayedByseason = {}
 
     matches.forEach(match => {
         let season = match.season;
-        if(matchesPlayedByseason[season]){
+        if (matchesPlayedByseason[season]) {
             matchesPlayedByseason[season]++;
-        }else{
+        } else {
             matchesPlayedByseason[season] = 1;
         }
     });
 
-
-    const fs = require('fs');
-
-        fs.writeFileSync('./../public/matchesPerYear.json', JSON.stringify(matchesPlayedByseason))
+    return matchesPlayedByseason;
 }
-const matches = require("./../data/matches.json") 
-findMatchesPerYear(matches);
+
+module.exports = findMatchesPerYear;

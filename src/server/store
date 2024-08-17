@@ -1,0 +1,6 @@
+function storeResultToJSON(outputFilePath, result){
+    const fs = require('fs');
+    fs.writeFileSync(outputFilePath, JSON.stringify(result))
+}
+
+module.exports = storeResultToJSON;
